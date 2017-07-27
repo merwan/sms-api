@@ -1,10 +1,8 @@
 module.exports = app => {
+  const Sms = app.models.sms;
   app.get("/sms", (req, res) => {
-    res.json({
-      sms: [
-        { message: "Hi there!" },
-        { message: "OK, thanks" }
-      ]
+    Sms.findAll({}, (sms) => {
+      res.json({ sms: sms });
     });
   });
 };
