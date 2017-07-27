@@ -1,8 +1,13 @@
 import express from "express";
+import consign from "consign";
 
 const PORT = 3000;
 const app = express();
 
-app.get("/", (req, res) => res.json({status: "SMS API"}));
+app.set("json spaces", 2);
+
+consign()
+  .include("routes")
+  .into(app);
 
 app.listen(PORT, () => console.log(`SMS API - Port ${PORT}`));
