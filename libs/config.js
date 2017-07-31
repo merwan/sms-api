@@ -1,6 +1,6 @@
 module.exports = {
   database: "sms",
-  username: "",
+  username: "postgres",
   password: "",
   params: {
     host: "db",
