@@ -5,14 +5,14 @@ module.exports = app => {
       Sms.findAll({})
         .then(result => res.json(result))
         .catch(error => {
-          res.status(412).json({ msg: error.message });
+          res.status(422).json({ msg: error.message });
         });
     })
     .post((req, res) => {
       Sms.create(req.body)
         .then(result => res.json(result))
         .catch(error => {
-          res.status(412).json({ msg: error.message });
+          res.status(422).json({ msg: error.message });
         });
     });
 
@@ -27,7 +27,7 @@ module.exports = app => {
           }
         })
         .catch(error => {
-          res.status(412).json({ msg: error.message });
+          res.status(422).json({ msg: error.message });
         });
     });
 };
