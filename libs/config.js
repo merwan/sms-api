@@ -8,5 +8,9 @@ module.exports = {
     define: {
       underscored: true
     }
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET || '$M5-ap1',
+    session: { session: false }
   }
 };
