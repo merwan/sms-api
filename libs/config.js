@@ -1,16 +1,7 @@
-module.exports = {
-  database: "sms",
-  username: "postgres",
-  password: "",
-  params: {
-    host: "db",
-    dialect: "postgres",
-    define: {
-      underscored: true
-    }
-  },
-  jwt: {
-    secret: process.env.JWT_SECRET || '$M5-ap1',
-    session: { session: false }
+module.exports = app => {
+  const env = process.env.NODE_ENV;
+  if (env) {
+    return require(`./config.${env}.js`);
   }
+  return require("./config.development.js");
 };
