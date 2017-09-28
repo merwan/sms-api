@@ -1,9 +1,9 @@
 module.exports = {
   database: "sms_test",
-  username: "postgres",
-  password: "",
+  username: process.env.DB_USERNAME || "postgres",
+  password: process.env.DB_PASSWORD || "",
   params: {
-    host: "db",
+    host: process.env.DB_HOST || "db",
     dialect: "postgres",
     logging: false,
     define: {
